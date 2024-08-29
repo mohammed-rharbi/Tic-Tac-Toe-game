@@ -4,10 +4,10 @@ body{
 
 }
 
-#welcome-p {
+#welcome_sec {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
@@ -16,19 +16,116 @@ body{
 grid-area: 1 / 2 / 3 / 5;
 color: #EBD3F8;
 font-size: 5em ;
+margin-top: 2em;
 }
 
 .start{
-    grid-area: 4 / 3 / 5 / 6;
+    grid-area: 3 / 3 / 5 / 6;
 }
 
-button{
-    margin-left: 3em;
+.start button{
+    margin: 4em;
     padding: 15px 25px;
     border-radius: 10px;
     font-size: large;
+    font-weight: bold;
     color: #7A1CAC;
+    cursor: pointer;
 }
+
+
+
+#name_form {
+    background-color: rgba(0, 0, 0, 0.17);
+    padding: 5em;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Adjust the gap between elements */
+}
+
+.player1, .player2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.go_btn {
+    margin-top: 20px; /* Adjust the space above the button */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+#fromPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#name_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    gap: 5em; 
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #d1c4e9; /* Light purple color for inputs */
+    color: #4a148c; /* Darker purple for text */
+    font-size: 16px;
+}
+
+label {
+    color: white;
+    font-size: x-large;
+    margin: 5px 6em 9px 0;
+}
+
+button {
+    margin-top: 5em;
+    padding: 12px 3em;
+    border-radius: 15px;
+    border: none;
+    background-color: #d1c4e9; /* Light purple color */
+    color: #4a148c; /* Darker purple for text */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b39ddb; /* Slightly darker on hover */
+}
+
+.error{
+    display: none;
+    color: red;
+}
+
+   
 
     
 
