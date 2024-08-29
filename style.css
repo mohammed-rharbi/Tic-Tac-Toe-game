@@ -1,0 +1,34 @@
+body{
+
+    background: linear-gradient(90deg, #7A1CAC, #2E073F);
+
+}
+
+#welcome-p {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.welcome{
+grid-area: 1 / 2 / 3 / 5;
+color: #EBD3F8;
+font-size: 5em ;
+}
+
+.start{
+    grid-area: 4 / 3 / 5 / 6;
+}
+
+button{
+    margin-left: 3em;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: large;
+    color: #7A1CAC;
+}
+
+    
+
