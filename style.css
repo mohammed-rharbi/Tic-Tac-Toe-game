@@ -1,7 +1,7 @@
 body{
 
     background: linear-gradient(90deg, #7A1CAC, #2E073F);
-
+    margin: 0px;
 }
 
 #welcome_sec {
@@ -12,11 +12,16 @@ body{
     grid-row-gap: 0px;
 }
 
+.logo{
+    grid-area: 1 / 3  / 5 / 5;
+    height: 10em;
+    margin: 3em;
+    
+}
 .welcome{
-grid-area: 1 / 2 / 3 / 5;
+grid-area: 2 / 2 / 3 / 5;
 color: #EBD3F8;
 font-size: 5em ;
-margin-top: 2em;
 }
 
 .start{
@@ -48,7 +53,7 @@ margin-top: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Adjust the gap between elements */
+    gap: 15px; 
 }
 
 .player1, .player2 {
@@ -58,7 +63,7 @@ margin-top: 2em;
 }
 
 .go_btn {
-    margin-top: 20px; /* Adjust the space above the button */
+    margin-top: 20px;
 }
 
 button {
@@ -92,8 +97,8 @@ input[type="text"] {
     padding: 15px;
     border-radius: 10px;
     border: none;
-    background-color: #d1c4e9; /* Light purple color for inputs */
-    color: #4a148c; /* Darker purple for text */
+    background-color: #d1c4e9;
+    color: #4a148c; 
     font-size: 16px;
 }
 
@@ -108,8 +113,8 @@ button {
     padding: 12px 3em;
     border-radius: 15px;
     border: none;
-    background-color: #d1c4e9; /* Light purple color */
-    color: #4a148c; /* Darker purple for text */
+    background-color: #d1c4e9;
+    color: #4a148c;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -117,7 +122,7 @@ button {
 }
 
 button:hover {
-    background-color: #b39ddb; /* Slightly darker on hover */
+    background-color: #b39ddb;
 }
 
 .error{
@@ -125,7 +130,69 @@ button:hover {
     color: red;
 }
 
-   
+header{
+    background-color: #2e073f68;
+    padding: 2em;
+}
 
-    
+.score_board{
 
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    font-size: xx-large;
+    margin-top: 15px;
+    color: white;
+}
+
+.score_board span{
+
+ background-color: #000000;
+ padding: 6px;
+ border-radius: 3px 7px;
+}
+
+
+
+#player_1{
+    background: linear-gradient(233deg, rgba(107,0,62,1) 0%, rgba(160,0,93,1) 25%, rgba(160,0,93,1) 75%, rgba(107,0,62,1) 100%);    padding: 5px 15px;
+    border-radius: 3px;
+}
+
+#player_2{
+    background: linear-gradient(143deg, rgba(0,56,89,1) 0%, rgba(0,87,160,1) 25%, rgba(0,87,160,1) 75%, rgba(0,56,89,1) 100%);    padding: 5px 15px;
+    border-radius: 3px;
+}
+
+
+.mainBord{
+
+    height: 55rem;
+    width: 55rem;
+    background-color: #030637;
+    display: grid;
+    grid-template-columns: repeat(20, 40px); 
+    grid-template-rows: repeat(20, 40px); 
+    gap: 2px; 
+    justify-content: center; 
+    margin: 20px 0; 
+
+}
+
+.boardCell{
+    height:35px;
+    width: 35px;
+    background-color: #70597A;
+    border-radius: 2px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.boardCell :hover{
+    background-color: #1e1820;
+}
+
+.boardTitle{
+font-size: xx-large;
+
+}
