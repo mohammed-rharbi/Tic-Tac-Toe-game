@@ -188,8 +188,8 @@ header{
     justify-content: center;
 }
 
-.boardCell :hover{
-    background-color: #1e1820;
+.boardCell:hover{
+    background-color: #493e4d;
 }
 
 .boardTitle{
