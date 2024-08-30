@@ -2,25 +2,30 @@
 
 //creation of welcome title and button
 
+let welcome_section = document.getElementById('welcome_sec');
+let img = document.createElement('img');
+let welcome_title = document.createElement('h1');
+let btn_div = document.createElement('div');
+let start_button = document.createElement('button');
 
-let section = document.getElementById('welcome_sec');
-section.innerHTML = 
-`
-<img src="/public/original.png" class="logo" alt="tic tac toe">
-<h1 class="welcome">WELCOME PLAYER</h1>
-<div class="start">
-<button id="start_btn" onclick="rediructToFormPage()">START</button>
-</div>  
-`
+img.src = '/public/original.png';
+img.className = 'logo';
+welcome_title.className = 'welcome';
+welcome_title.textContent = 'WELCOME PLAYER';
+btn_div.className = 'start';
+start_button.className = 'start_button'
+start_button.textContent = 'START';
+btn_div.appendChild(start_button);
+welcome_section.append(img , welcome_title , btn_div );
 
-
-function rediructToFormPage(){
-window.location.href = '/formPage.html';
+start_button.onclick = ()=>{window.location.href = '/formPage.html';
 }
 
-let formi = document.getElementById('name_form');
 
-formi.addEventListener('submit', (e)=>{
+
+let players_form = document.getElementById('name_form');
+
+players_form.addEventListener('submit', (e)=>{
 
     e.preventDefault();
 
@@ -37,25 +42,19 @@ formi.addEventListener('submit', (e)=>{
  if(playerOne && playerTwo){
 
     const player1ID = Date.now();
-    let player1 = { id: player1ID , playerName: playerOne , score: [] };  
+    let player1 = { id: player1ID , playerName: playerOne , score: 0 };  
     localStorage.setItem('player1' , JSON.stringify(player1));
 
 
     const player2ID = Date.now() + 1;
-    let player2 = { id: player2ID, playerName: playerTwo, score: [] };  
+    let player2 = { id: player2ID, playerName: playerTwo, score: 0 };  
     localStorage.setItem('player2' , JSON.stringify(player2));
-
-
  }
  
-
-
-
-
-
-
-
 })
+
+
+// removeEventListener('submit',)
 
 
 

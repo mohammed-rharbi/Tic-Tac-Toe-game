@@ -15,7 +15,6 @@ for(let i = 1 ; i <= 400 ; i++){
 
     let cell = document.createElement('div');
     cell.className = 'boardCell';
-
     mainBoard.appendChild(cell);
 }
 
