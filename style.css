@@ -176,6 +176,8 @@ header{
     gap: 2px; 
     justify-content: center; 
     margin: 20px 0; 
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
@@ -185,7 +187,8 @@ header{
     background-color: #70597A;
     border-radius: 2px;
     cursor: pointer;
-    justify-content: center;
+    margin: auto;
+    margin-top: 1.4em;
 }
 
 .boardCell:hover{
@@ -193,6 +196,8 @@ header{
 }
 
 .boardTitle{
-font-size: xx-large;
+color: #24B121;    
+font-size: 3em;
+text-align: center;
 
 }
