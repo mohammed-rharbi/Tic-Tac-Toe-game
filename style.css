@@ -73,7 +73,7 @@ button {
 }
 
 
-#fromPage {
+.fromPage {
     display: flex;
     justify-content: center;
     align-items: center;

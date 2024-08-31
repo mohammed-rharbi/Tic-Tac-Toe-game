@@ -27,28 +27,80 @@ start_button.onclick = ()=>{window.location.href = '/formPage.html';
 }
 
 }
-
-
-
-
-
 //
 
 
-let players_form = document.querySelector('form');
+
+
+   let formSection = document.createElement('section');
+   formSection.className = 'fromPage';
+   formSection.id = 'fromPage';
+
+
+   let Form =  document.createElement('form');
+   Form.id = 'name_form';
+
+   let mainDiv = document.createElement('div');
+   mainDiv.className = 'input-group';
+
+   let div1 = document.createElement('div');
+   div1.className = 'player1';
+   let label1 = document.createElement('label');
+   let input1 = document.createElement('input');
+   let error1 = document.createElement('p');
+   error1.textContent = 'please provide a user name';
+   error1.className = 'error';
+   label1.textContent = 'player 1'
+   input1.id = 'player_1';
+   input1.setAttribute('type','text');
+   input1.setAttribute('placeholder','Enter your');
+
+
+   let div2 = document.createElement('div');
+   div2.className = 'player2';
+   let label2 = document.createElement('label');
+   let input2 = document.createElement('input');
+   let error2 = document.createElement('p');
+   error2.textContent = 'please provide a user name';
+   error2.className = 'error';
+   label2.textContent = 'player 2'
+   input2.id = 'player_2';
+   input2.setAttribute('type','text');
+   input2.setAttribute('placeholder','Enter your');
+
+   let okButton = document.createElement('button');
+   okButton.textContent = 'OK';
+   okButton.type = 'submit';
+
+
+   div1.append(label1 , input1 , error1);
+   div2.append(label2 , input2 , error2);
+
+   mainDiv.append(div1 , div2);
+
+   Form.append(mainDiv , okButton);
+
+   formSection.appendChild(Form);
+
+  if(window.location.pathname === '/formPage.html'){
+   document.body.appendChild(formSection); 
+}
+
+
+
 
 function sumbit_Players(e){
 
    e.preventDefault();
 
-   let playerOne = document.getElementById('player_1').value.trim();   
-   let playerTwo = document.getElementById('player_2').value.trim();   
+   let playerOne = input1.value.trim();   
+   let playerTwo = input2.value.trim();   
   
    if(!playerOne){
-      document.getElementById('player1Error').style.display = 'block';
+      error1.style.display = 'block';
    }
    if(!playerTwo){
-      document.getElementById('player2Error').style.display = 'block';
+      error2.style.display = 'block';
    }
   
    if(playerOne && playerTwo){
@@ -62,20 +114,18 @@ function sumbit_Players(e){
   
   
       playersInotStorage(player1 , player2)
-      
+      location.href = '/Board.html';
+
+      Form.removeEventListener('click', sumbit_Players);
    }
    
-   document.getElementById('player_1').value = '';
-   document.getElementById('player_2').value = '';
+   input1.value = '';
+   input2.value = '';
   
-
-   location.href = '/Board.html';
 }  
 
 
-players_form.addEventListener('submit' , sumbit_Players);
-// players_form.removeEventListener('submit' , sumbit_Players);
-
+Form.addEventListener('submit' , sumbit_Players);
 
 
 function playersInotStorage(player1 , player2){
