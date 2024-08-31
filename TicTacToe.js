@@ -1,3 +1,13 @@
+const player1_data = JSON.parse(localStorage.getItem('player1'));
+const player1Name = player1_data.playerName;
+const player1Score = player1_data.score;
+
+
+const player2_data = JSON.parse(localStorage.getItem('player2'));
+const player2Name = player2_data.playerName;
+const player2Score = player2_data.score;
+
+
 
 
 
@@ -14,7 +24,8 @@ score_board.className = 'score_board';
 let  player__1_div = document.createElement('div');
 let player1_score = document.createElement('span');
 player__1_div.className = 'player__1';
-player1_score.textContent = '0';
+player__1_div.textContent = player1Name;
+player1_score.textContent = player1Score;
 
 let span_dach = document.createElement('div');
 span_dach.textContent = '_';
@@ -23,7 +34,8 @@ span_dach.textContent = '_';
 let  player__2_div = document.createElement('div');
 let player2_score = document.createElement('span');
 player__2_div.className = 'player__2';
-player2_score.textContent = '0';
+player__2_div.textContent = player2Name;
+player2_score.textContent = player2Score;
 
 
 score_board.append(player__1_div , player1_score , span_dach, player2_score , player__2_div );
@@ -54,6 +66,8 @@ for(let i = 1 ; i <= 400 ; i++){
     cell.className = 'boardCell';
     cell.setAttribute('id', i)
     mainBoard.appendChild(cell);
+
+    
 }
 
 
