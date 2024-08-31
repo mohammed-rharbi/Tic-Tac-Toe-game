@@ -3,14 +3,17 @@ document.addEventListener('DOMContentLoaded' , ()=>{
 
 //creation of welcome title and button
 
-let welcome_section = document.querySelector('#welcome_sec');
+if(window.location.pathname === '/index.html' || window.location.pathname === '/'){
+
+   let welcome_section = document.createElement('section');
+
+   welcome_section.className = 'welcome_sec';
+   document.body.appendChild(welcome_section);
+   
 let img = document.createElement('img');
 let welcome_title = document.createElement('h1');
 let btn_div = document.createElement('div');
 let start_button = document.createElement('button');
-
-
-welcome_section.append(img , welcome_title , btn_div );
 img.src = '/public/original.png';
 img.className = 'logo';
 welcome_title.className = 'welcome';
@@ -18,17 +21,21 @@ welcome_title.textContent = 'WELCOME PLAYER';
 btn_div.className = 'start';
 start_button.className = 'start_button'
 start_button.textContent = 'START';
+welcome_section.append(img , welcome_title , btn_div );
 btn_div.appendChild(start_button);
 start_button.onclick = ()=>{window.location.href = '/formPage.html';
 }
+
+}
+
+
+
+
 
 //
 
 
 let players_form = document.querySelector('form');
-
-
-
 
 function sumbit_Players(e){
 
@@ -67,7 +74,7 @@ function sumbit_Players(e){
 
 
 players_form.addEventListener('submit' , sumbit_Players);
-players_form.removeEventListener('submit' , sumbit_Players);
+// players_form.removeEventListener('submit' , sumbit_Players);
 
 
 

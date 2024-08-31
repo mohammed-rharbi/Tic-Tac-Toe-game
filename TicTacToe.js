@@ -17,6 +17,10 @@ for(let i = 1 ; i <= 400 ; i++){
     cell.className = 'boardCell';
     cell.setAttribute('id', i)
     mainBoard.appendChild(cell);
+
+    
+
 }
+
 
 
