@@ -130,7 +130,7 @@ button:hover {
     color: red;
 }
 
-header{
+.score_hader{
     background-color: #2e073f68;
     padding: 2em;
 }
@@ -154,12 +154,12 @@ header{
 
 
 
-#player__1{
+.player__1{
     background: linear-gradient(233deg, rgba(107,0,62,1) 0%, rgba(160,0,93,1) 25%, rgba(160,0,93,1) 75%, rgba(107,0,62,1) 100%);    padding: 5px 15px;
     border-radius: 3px;
 }
 
-#player__2{
+.player__2{
     background: linear-gradient(143deg, rgba(0,56,89,1) 0%, rgba(0,87,160,1) 25%, rgba(0,87,160,1) 75%, rgba(0,56,89,1) 100%);    padding: 5px 15px;
     border-radius: 3px;
 }
