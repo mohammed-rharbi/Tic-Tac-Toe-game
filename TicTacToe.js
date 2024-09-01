@@ -15,6 +15,12 @@ restartbtn.className = 'resBtn';
 
 
 
+let winCard = document.createElement('div');
+winCard.className = 'winCard';
+winCard.textContent = `player1 WINS`;
+
+
+
 let O_turn = document.createElement('div');
 let X_turn = document.createElement('div');
 O_turn.textContent = 'O';
@@ -63,7 +69,7 @@ let boardTitle = document.createElement('h1');
 boardTitle.textContent =  'TIC TAC TOE';
 mainBoard.className = 'mainBord';
 boardTitle.className = 'boardTitle';
-Boardsection.append( header,boardTitle,restartbtn,mainBoard);
+Boardsection.append( header,boardTitle,restartbtn,mainBoard,winCard);
 
 
 if(window.location.pathname === '/Board.html'){
@@ -84,33 +90,36 @@ for(let i = 1 ; i <= 400 ; i++){
 
 
     cell.addEventListener('click', cellClick)
-
-    function cellClick(e){
-        if(turn === 'x' && e.target.textContent == ''){
-    
-            e.target.textContent = 'x'; 
-            cell.style.backgroundColor = 'rgba(160,0,93,1)';
-            turn = 'o';
-            O_turn.style.display = 'block';
-            X_turn.style.display = 'none';
-    
-        }else if(turn === 'o' && e.target.textContent == ''){
-            e.target.textContent = 'o'; 
-            cell.style.backgroundColor = 'rgba(0,87,160,1) ';
-            turn = 'x';
-            X_turn.style.display = 'block';
-            O_turn.style.display = 'none';
-    
-        }
-
-        cell.removeEventListener('click' , cellClick);
-        
-    }
-
-    restartbtn.addEventListener('click' , reset);
-    
+ 
 }
 
+restartbtn.addEventListener('click' , reset);
+
+
+
+
+
+function cellClick(e){
+    if(turn === 'x' && e.target.textContent == ''){
+
+        e.target.textContent = 'x'; 
+        e.target.style.backgroundColor = 'rgba(160,0,93,1)';
+        turn = 'o';
+        O_turn.style.display = 'block';
+        X_turn.style.display = 'none';
+
+    }else if(turn === 'o' && e.target.textContent == ''){
+        e.target.textContent = 'o'; 
+        e.target.style.backgroundColor = 'rgba(0,87,160,1) ';
+        turn = 'x';
+        X_turn.style.display = 'block';
+        O_turn.style.display = 'none';
+
+    }
+
+    e.target.removeEventListener('click' , cellClick);
+    
+}
 
 function reset(){
 
@@ -118,12 +127,11 @@ function reset(){
     cell.forEach(cell => {
         
         cell.textContent = '';
-        cell.style.backgroundColor = '#70597A';
-        turn = 'x';
-        X_turn.style.display = 'block';
-        O_turn.style.display = 'none';
+        cell.style.backgroundColor = '';
         cell.addEventListener('click', cellClick);
-        cell.removeEventListener('click' , reset);
     });
+    turn = 'x';
+    X_turn.style.display = 'block';
+    O_turn.style.display = 'none';
 
 }
