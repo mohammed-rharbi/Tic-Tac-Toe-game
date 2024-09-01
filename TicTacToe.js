@@ -77,29 +77,30 @@ for(let i = 1 ; i <= 400 ; i++){
     mainBoard.appendChild(cell);
 
 
-    cell.addEventListener('click', (e)=>{
+    cell.addEventListener('click', cellClick)
 
+    function cellClick(e){
         if(turn === 'x' && e.target.textContent == ''){
-
+    
             e.target.textContent = 'x'; 
             cell.style.backgroundColor = 'rgba(160,0,93,1)';
             turn = 'o';
             O_turn.style.display = 'block';
             X_turn.style.display = 'none';
-
+    
         }else if(turn === 'o' && e.target.textContent == ''){
             e.target.textContent = 'o'; 
             cell.style.backgroundColor = 'rgba(0,87,160,1) ';
             turn = 'x';
             X_turn.style.display = 'block';
             O_turn.style.display = 'none';
-
+    
         }
 
-    })
+        cell.removeEventListener('click' , cellClick);
+        
+    }
     
 }
 
-function cellClick(id){
-    
-}
+
