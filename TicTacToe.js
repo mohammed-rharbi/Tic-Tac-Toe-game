@@ -9,6 +9,12 @@ const player2Score = player2_data.score;
 
 
 
+let restartbtn = document.createElement('button');
+restartbtn.textContent = 'RESTART';
+restartbtn.className = 'resBtn';
+
+
+
 let O_turn = document.createElement('div');
 let X_turn = document.createElement('div');
 O_turn.textContent = 'O';
@@ -57,7 +63,7 @@ let boardTitle = document.createElement('h1');
 boardTitle.textContent =  'TIC TAC TOE';
 mainBoard.className = 'mainBord';
 boardTitle.className = 'boardTitle';
-Boardsection.append( header,boardTitle,mainBoard);
+Boardsection.append( header,boardTitle,restartbtn,mainBoard);
 
 
 if(window.location.pathname === '/Board.html'){
@@ -100,7 +106,24 @@ for(let i = 1 ; i <= 400 ; i++){
         cell.removeEventListener('click' , cellClick);
         
     }
+
+    restartbtn.addEventListener('click' , reset);
     
 }
 
 
+function reset(){
+
+    const cell = document.querySelectorAll('.boardCell');
+    cell.forEach(cell => {
+        
+        cell.textContent = '';
+        cell.style.backgroundColor = '#70597A';
+        turn = 'x';
+        X_turn.style.display = 'block';
+        O_turn.style.display = 'none';
+        cell.addEventListener('click', cellClick);
+        cell.removeEventListener('click' , reset);
+    });
+
+}

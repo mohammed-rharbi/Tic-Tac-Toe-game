@@ -218,7 +218,18 @@ color: rgb(212, 255, 0);
 
 
 .X_turn{
-    display: none;
+    display: block;
     font-size: xx-large;
     color: rgb(221, 255, 0);
+}
+
+.resBtn{
+
+    display: flex;
+    margin: 20px 0; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    background-color: #b39ddb;
+    border-radius: 4px;
 }
