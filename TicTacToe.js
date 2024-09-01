@@ -9,6 +9,13 @@ const player2Score = player2_data.score;
 
 
 
+let O_turn = document.createElement('div');
+let X_turn = document.createElement('div');
+O_turn.textContent = 'O';
+X_turn.textContent = 'X';
+X_turn.className = 'X_turn';
+O_turn.className = 'O_turn';
+
 
 
 let Boardsection = document.createElement('section');
@@ -38,7 +45,7 @@ player__2_div.textContent = player2Name;
 player2_score.textContent = player2Score;
 
 
-score_board.append(player__1_div , player1_score , span_dach, player2_score , player__2_div );
+score_board.append(X_turn,player__1_div , player1_score , span_dach, player2_score , player__2_div ,O_turn );
 
 header.appendChild(score_board);
 
@@ -60,6 +67,8 @@ document.body.appendChild(Boardsection)
 }
 
 
+let turn = 'x';
+
 for(let i = 1 ; i <= 400 ; i++){
 
     let cell = document.createElement('div');
@@ -67,9 +76,30 @@ for(let i = 1 ; i <= 400 ; i++){
     cell.setAttribute('id', i)
     mainBoard.appendChild(cell);
 
+
+    cell.addEventListener('click', (e)=>{
+
+        if(turn === 'x' && e.target.textContent == ''){
+
+            e.target.textContent = 'x'; 
+            cell.style.backgroundColor = 'rgba(160,0,93,1)';
+            turn = 'o';
+            O_turn.style.display = 'block';
+            X_turn.style.display = 'none';
+
+        }else if(turn === 'o' && e.target.textContent == ''){
+            e.target.textContent = 'o'; 
+            cell.style.backgroundColor = 'rgba(0,87,160,1) ';
+            turn = 'x';
+            X_turn.style.display = 'block';
+            O_turn.style.display = 'none';
+
+        }
+
+    })
     
 }
 
-
-
-
+function cellClick(id){
+    
+}

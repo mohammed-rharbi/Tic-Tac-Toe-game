@@ -188,7 +188,14 @@ button:hover {
     border-radius: 2px;
     cursor: pointer;
     margin: auto;
-    margin-top: 1.4em;
+    margin-top:50%;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
+    
 }
 
 .boardCell:hover{
@@ -200,4 +207,18 @@ color: #24B121;
 font-size: 3em;
 text-align: center;
 
+}
+
+
+.O_turn{
+display: none;
+font-size: xx-large;
+color: rgb(212, 255, 0);
+}
+
+
+.X_turn{
+    display: none;
+    font-size: xx-large;
+    color: rgb(221, 255, 0);
 }
