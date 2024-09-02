@@ -178,6 +178,7 @@ function reset(){
         cell.style.backgroundColor = '';
         cell.addEventListener('click', cellClick);
     });
+    cells = Array(400).fill(null).map(()=> Array(20).fill(null));
     turn = 'x';
     X_turn.style.display = 'block';
     O_turn.style.display = 'none';
