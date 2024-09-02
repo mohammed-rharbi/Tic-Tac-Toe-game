@@ -81,6 +81,8 @@ document.body.appendChild(Boardsection)
 
 let turn = 'x';
 
+let cells = Array(400).fill(null).map(()=> Array(20).fill(null));
+
 for(let i = 1 ; i <= 400 ; i++){
 
     let cell = document.createElement('div');
@@ -100,26 +102,72 @@ restartbtn.addEventListener('click' , reset);
 
 
 function cellClick(e){
-    if(turn === 'x' && e.target.textContent == ''){
 
-        e.target.textContent = 'x'; 
-        e.target.style.backgroundColor = 'rgba(160,0,93,1)';
-        turn = 'o';
-        O_turn.style.display = 'block';
-        X_turn.style.display = 'none';
 
-    }else if(turn === 'o' && e.target.textContent == ''){
-        e.target.textContent = 'o'; 
-        e.target.style.backgroundColor = 'rgba(0,87,160,1) ';
-        turn = 'x';
-        X_turn.style.display = 'block';
-        O_turn.style.display = 'none';
+    const cellID = parseInt(e.target.id) - 1 ;
+    const row = Math.floor(cellID / 20);
+    const col = cellID % 20 ;
 
+
+    if(!cells[row][col]){
+
+        cells[row][col] = turn ;
+        e.target.textContent = turn; 
+        e.target.style.backgroundColor = turn === 'x' ? 'rgba(160,0,93,1)' : 'rgba(0,87,160,1)';
+
+        if(checkwin(row , col)){
+            alert(`${turn} wins`);
+        }
+
+        turn = turn === 'x' ? 'o' : 'x';
+        O_turn.style.display = turn === 'o' ? 'block' : 'none';
+        X_turn.style.display = turn === 'x' ? 'block' : 'none';
+        e.target.removeEventListener('click' , cellClick);
+    }
+}
+
+
+
+function checkwin(row , col){
+
+    return (
+
+        checkDerc(row , col , 1 , 0) ||
+        checkDerc(row , col , 0 , 1) ||
+        checkDerc(row , col , 1 , 1) ||
+        checkDerc(row , col , 1 , -1) 
+    )
+
+}
+
+
+function checkDerc(row , col , rowD , colD){
+
+    let count = 1;
+    count += checkCount(row , col , rowD , colD);
+    count += checkCount(row , col , -rowD , -colD);
+
+    return count >= 5 ;
+
+}
+
+
+function checkCount(row , col , rowD , colD){
+
+    let count = 0;
+    let r = row + rowD ;
+    let c = col + colD ;
+    while( r >= 0 && r < 20 && c >= 0 && c < 20 && cells[r][c] === turn ){
+        
+        count ++;
+        r += rowD;
+        c += colD;
     }
 
-    e.target.removeEventListener('click' , cellClick);
-    
+    return count;
 }
+
+
 
 function reset(){
 
