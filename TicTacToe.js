@@ -121,10 +121,12 @@ function cellClick(e){
         if(checkwin(row , col)){
             if(turn === 'x'){
                 winCard.style.display = 'block';
-                winCard.textContent = `${player1Name} WINS`;                
+                winCard.textContent = `${player1Name} WINS`;
+                updateScore('x');               
             }else if(turn === 'o'){
                 winCard.style.display = 'block';
                 winCard.textContent = `${player2Name} WINS`;
+                updateScore('o');
             }
         }
 
@@ -192,4 +194,16 @@ function reset(){
     X_turn.style.display = 'block';
     O_turn.style.display = 'none';
 
+}
+
+
+function updateScore(win){
+
+    let winner = win === 'x' ? 'player1' : 'player2';
+    
+    let playerScore = JSON.parse(localStorage.getItem(winner));
+
+    playerScore.score += 1;
+
+    localStorage.setItem(winner , JSON.stringify(playerScore));
 }
