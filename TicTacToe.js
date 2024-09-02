@@ -33,6 +33,7 @@ winBtn.addEventListener('click', function hid(){
     winCard.style.display = 'none';
     document.body.classList.remove('dimmed');
     reset()
+    winBtn.removeEventListener('click', hid);
 });
 
 
@@ -64,17 +65,25 @@ player1_score.textContent = player1Score;
 let span_dach = document.createElement('div');
 span_dach.textContent = '_';
 
-
+let  newgamebtn = document.createElement('span');
 let  player__2_div = document.createElement('div');
 let player2_score = document.createElement('span');
+newgamebtn.textContent = 'NEW GAME';
+newgamebtn.className = 'newgame';
 player__2_div.className = 'player__2';
 player__2_div.textContent = player2Name;
 player2_score.textContent = player2Score;
 
+newgamebtn.addEventListener('click', function retToform(){
+
+    reset()
+    window.location.pathname = 'formPage.html';  
+    newgamebtn.removeEventListener('click',retToform);
+})
 
 score_board.append(X_turn,player__1_div , player1_score , span_dach, player2_score , player__2_div ,O_turn );
 
-header.appendChild(score_board);
+header.append(newgamebtn,score_board);
 
 
 
@@ -219,6 +228,13 @@ function updateScore(win){
     playerScore.score += 1;
 
     localStorage.setItem(winner , JSON.stringify(playerScore));
+
+    if(winner === 'player1'){
+        player1_score.textContent = playerScore.score;
+    }else if(winner === 'player2'){
+        player2_score.textContent = playerScore.score;
+
+    }
 }
 
 
