@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', ()=>{
+
+
 const player1_data = JSON.parse(localStorage.getItem('player1'));
 const player1Name = player1_data.playerName;
 const player1Score = player1_data.score;
@@ -17,11 +20,20 @@ restartbtn.className = 'resBtn';
 
 let winCard = document.createElement('div');
 let winBtn = document.createElement('button');
+let wintitle = document.createElement('h4');
+wintitle.className = 'wintitle';
+wintitle.textContent ='';
 winBtn.className = 'winbtn';
-winBtn.textContent = 'Another Round';
+winBtn.textContent = 'Back';
 winCard.className = 'winCard';
-winCard.appendChild(winBtn);
+winCard.append(wintitle,winBtn);
 
+winBtn.addEventListener('click', function hid(){
+
+    winCard.style.display = 'none';
+    document.body.classList.remove('dimmed');
+    reset()
+});
 
 
 let O_turn = document.createElement('div');
@@ -66,7 +78,6 @@ header.appendChild(score_board);
 
 
 
-let board_page = document.getElementById('board_page');
 let mainBoard = document.createElement('div');
 let boardTitle = document.createElement('h1');
 boardTitle.textContent =  'TIC TAC TOE';
@@ -121,11 +132,13 @@ function cellClick(e){
         if(checkwin(row , col)){
             if(turn === 'x'){
                 winCard.style.display = 'block';
-                winCard.textContent = `${player1Name} WINS`;
+                wintitle.textContent = `${player1Name} WINS`;
+                document.body.className = 'dimmed';
                 updateScore('x');               
             }else if(turn === 'o'){
                 winCard.style.display = 'block';
-                winCard.textContent = `${player2Name} WINS`;
+                wintitle.textContent = `${player2Name} WINS`;
+                document.body.className = 'dimmed';
                 updateScore('o');
             }
         }
@@ -207,3 +220,8 @@ function updateScore(win){
 
     localStorage.setItem(winner , JSON.stringify(playerScore));
 }
+
+
+
+})
+

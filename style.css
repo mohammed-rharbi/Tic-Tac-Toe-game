@@ -244,6 +244,7 @@ color: rgb(212, 255, 0);
     color: gold;
     padding: 30px 60px;
     border-radius: 9px;
+    text-align: center;
     left: 50%;
     right: 50%;
     top: 50%;
@@ -251,8 +252,21 @@ color: rgb(212, 255, 0);
 }
 
 .winbtn{
-    display: flex;
-    left: 50%;
-    right: 50%;
+   margin: auto;
     padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: solid 2px rgb(255, 254, 254);
+}
+.winbtn:hover{
+background-color: rgb(174, 25, 25);
+}
+
+body.dimmed {   
+    pointer-events: none;
+}
+
+
+body.dimmed .winCard {   
+    pointer-events: auto;
 }
