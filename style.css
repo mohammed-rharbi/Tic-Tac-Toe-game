@@ -235,20 +235,24 @@ color: rgb(212, 255, 0);
 }
 
 .winCard{
-    position: relative;
-    z-index: 10;
     display: none;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+    position: absolute;    
     height: 5em;
     width: 6em;
     font-size: xx-large;
     background-color: #24B121;
     color: gold;
     padding: 30px 60px;
-    text-align: center;
     border-radius: 9px;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%); 
+}
 
-
+.winbtn{
+    display: flex;
+    left: 50%;
+    right: 50%;
+    padding: 5px 10px;
 }

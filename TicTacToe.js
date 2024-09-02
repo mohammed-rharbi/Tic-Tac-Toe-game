@@ -16,8 +16,11 @@ restartbtn.className = 'resBtn';
 
 
 let winCard = document.createElement('div');
+let winBtn = document.createElement('button');
+winBtn.className = 'winbtn';
+winBtn.textContent = 'Another Round';
 winCard.className = 'winCard';
-winCard.textContent = `player1 WINS`;
+winCard.appendChild(winBtn);
 
 
 
@@ -116,7 +119,13 @@ function cellClick(e){
         e.target.style.backgroundColor = turn === 'x' ? 'rgba(160,0,93,1)' : 'rgba(0,87,160,1)';
 
         if(checkwin(row , col)){
-            alert(`${turn} wins`);
+            if(turn === 'x'){
+                winCard.style.display = 'block';
+                winCard.textContent = `${player1Name} WINS`;                
+            }else if(turn === 'o'){
+                winCard.style.display = 'block';
+                winCard.textContent = `${player2Name} WINS`;
+            }
         }
 
         turn = turn === 'x' ? 'o' : 'x';
